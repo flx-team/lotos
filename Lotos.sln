@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotos.Abstractions", "Sources\Lotos.Abstractions\Lotos.Abstractions.csproj", "{3B6D3FC7-03AB-4588-A0B1-B7BC3CC0DD17}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{6D0B4604-0FAC-4891-881C-88819D753DF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{65E7E9C3-3E9D-43D1-B982-F37A4AD40F14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotos.DependencyInjection", "Sources\Lotos.DependencyInjection\Lotos.DependencyInjection.csproj", "{C65A8074-F96B-47F6-805B-5C0F3494BF9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{FA9378C2-485D-4B6F-8324-C8452DAF8583}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotos.Mongo", "Sources\Lotos.Mongo\Lotos.Mongo.csproj", "{48FF9A22-F96F-4608-9E2E-71460F48937E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotos.Examples.AspNetCore", "Examples\Lotos.Examples.AspNetCore\Lotos.Examples.AspNetCore.csproj", "{C6F35452-608A-49A9-AEA8-DEF7D993C08F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotos.Examples.Console", "Examples\Lotos.Examples.Console\Lotos.Examples.Console.csproj", "{E15AA860-6DCC-4E0D-B515-A5EBF32DAC6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B6D3FC7-03AB-4588-A0B1-B7BC3CC0DD17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B6D3FC7-03AB-4588-A0B1-B7BC3CC0DD17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B6D3FC7-03AB-4588-A0B1-B7BC3CC0DD17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B6D3FC7-03AB-4588-A0B1-B7BC3CC0DD17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C65A8074-F96B-47F6-805B-5C0F3494BF9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C65A8074-F96B-47F6-805B-5C0F3494BF9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C65A8074-F96B-47F6-805B-5C0F3494BF9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C65A8074-F96B-47F6-805B-5C0F3494BF9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48FF9A22-F96F-4608-9E2E-71460F48937E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48FF9A22-F96F-4608-9E2E-71460F48937E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48FF9A22-F96F-4608-9E2E-71460F48937E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48FF9A22-F96F-4608-9E2E-71460F48937E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6F35452-608A-49A9-AEA8-DEF7D993C08F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6F35452-608A-49A9-AEA8-DEF7D993C08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6F35452-608A-49A9-AEA8-DEF7D993C08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6F35452-608A-49A9-AEA8-DEF7D993C08F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E15AA860-6DCC-4E0D-B515-A5EBF32DAC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E15AA860-6DCC-4E0D-B515-A5EBF32DAC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E15AA860-6DCC-4E0D-B515-A5EBF32DAC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E15AA860-6DCC-4E0D-B515-A5EBF32DAC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EEB53A0C-78C8-469D-A864-792B75D01AED}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B6D3FC7-03AB-4588-A0B1-B7BC3CC0DD17} = {6D0B4604-0FAC-4891-881C-88819D753DF4}
+		{C65A8074-F96B-47F6-805B-5C0F3494BF9F} = {6D0B4604-0FAC-4891-881C-88819D753DF4}
+		{48FF9A22-F96F-4608-9E2E-71460F48937E} = {6D0B4604-0FAC-4891-881C-88819D753DF4}
+		{C6F35452-608A-49A9-AEA8-DEF7D993C08F} = {FA9378C2-485D-4B6F-8324-C8452DAF8583}
+		{E15AA860-6DCC-4E0D-B515-A5EBF32DAC6F} = {FA9378C2-485D-4B6F-8324-C8452DAF8583}
+	EndGlobalSection
+EndGlobal
