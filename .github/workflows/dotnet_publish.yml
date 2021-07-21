@@ -20,6 +20,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Pack
-      run: dotnet pack --c Release --no-restore
+      run: dotnet pack -c Release --no-restore
     - name: Publish
       run: dotnet nuget push ./Sources/**/bin/Release/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "github" --skip-duplicate --no-symbols 1 
