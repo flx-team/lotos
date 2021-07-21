@@ -17,7 +17,7 @@ namespace Lotos.Mongo.Database
 
         public void Dispose()
         {
-            
+
         }
 
         public Task<IBasket<T>> GetBasket<T>() where T : IEntity<T>

@@ -20,6 +20,9 @@ namespace Lotos.DependencyInjection.Common
 
         public void Remove(int pin)
         {
+            var connection = Get(pin);
+            connection.Dispose();
+
             _pins.Remove(pin);
         }
 
@@ -32,9 +35,7 @@ namespace Lotos.DependencyInjection.Common
         {
             foreach (var element in _pins)
             {
-                element.Value.Dispose();
-
-                _pins.Remove(element.Key);
+                Remove(element.Key);
             }
         }
     }
