@@ -14,7 +14,7 @@
     <ReleaseVersion>1.0.0</ReleaseVersion>
     <PackageVersion>1.0.0</PackageVersion>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageLicenseFile>license</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <RepositoryUrl>https://github.com/flx-team/lotos</RepositoryUrl>
