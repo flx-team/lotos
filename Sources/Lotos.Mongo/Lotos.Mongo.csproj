@@ -4,6 +4,20 @@
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
 	<WarningsAsErrors>nullable</WarningsAsErrors>
+    <PackOnBuild>true</PackOnBuild>
+    <Authors>Flx Team</Authors>
+    <Description>The Lotos is libraries for work with databases like mongo db or mysql uses one simple interface.</Description>
+    <Copyright>Flx Team</Copyright>
+    <Owners>Flx Team</Owners>
+    <Title>Lotos.Mongo</Title>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <ReleaseVersion>1.0.0</ReleaseVersion>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageLicenseFile>license</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <RepositoryUrl>https://github.com/flx-team/lotos</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,5 +36,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+      <Link>Assets\license</Link>
+    </None>
+    <None Include="..\..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+      <Link>Assets\icon.png</Link>
+    </None>
   </ItemGroup>
 </Project>

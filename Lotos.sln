@@ -19,6 +19,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotos.Examples.AspNetCore",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotos.Examples.Console", "Examples\Lotos.Examples.Console\Lotos.Examples.Console.csproj", "{E15AA860-6DCC-4E0D-B515-A5EBF32DAC6F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{44435077-6348-4651-AD06-66254DE4FD19}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		icon.png = icon.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{A4032576-57CF-4E0C-B211-C12059EC425C}"
+	ProjectSection(SolutionItems) = preProject
+		READMY.md = READMY.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
