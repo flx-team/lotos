@@ -11,8 +11,8 @@
     <Owners>Flx Team</Owners>
     <Title>Lotos.DependencyInjection</Title>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <ReleaseVersion>1.0.0</ReleaseVersion>
-    <PackageVersion>1.0.0</PackageVersion>
+    <ReleaseVersion>1.1.0</ReleaseVersion>
+    <PackageVersion>1.1.0</PackageVersion>
     <PackageIcon>icon.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

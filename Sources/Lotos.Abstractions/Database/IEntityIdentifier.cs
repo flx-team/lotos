@@ -2,10 +2,10 @@
 
 namespace Lotos.Abstractions.Database
 {
-    public interface IEntityIdentifier<T>
+    public interface IEntityIdentifier
     {
-        T Id { get; }
+        Guid Id { get; }
 
-        void SetId(T? id);
+        void SetId(Guid id);
     }
 }

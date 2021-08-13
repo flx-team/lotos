@@ -6,8 +6,9 @@ namespace Lotos.Abstractions.Database
 {
     public class Entity<T> : IEntity<T> where T : IEntity<T>
     {
-        public object Id { get; private set; } = null!;
+        public Guid Id { get; private set; }
 
+        [Ignore]
         public IBasket<T> Basket { get; private set; } = null!;
 
         public async Task Remove()
@@ -25,9 +26,9 @@ namespace Lotos.Abstractions.Database
             await Basket.Sync((T)(IEntity<T>)this);
         }
 
-        public void SetId(object? id)
+        public void SetId(Guid id)
         {
-            Id = id ?? null!;
+            Id = id;
         }
 
         public void SetBasket(IBasket<T>? basket)

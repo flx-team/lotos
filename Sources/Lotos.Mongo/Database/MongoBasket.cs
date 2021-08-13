@@ -25,7 +25,7 @@ namespace Lotos.Mongo.Database
             return (int)count;
         }
 
-        public async Task<bool> Exists(object id)
+        public async Task<bool> Exists(Guid id)
         {
             var idFilter = BuildIdFilter(id);
 
@@ -47,7 +47,7 @@ namespace Lotos.Mongo.Database
 
         public async Task<T> Keep(T entity)
         {
-            if (entity.Id is not null)
+            if (entity.Id != Guid.Empty)
             {
                 return entity;
             }
@@ -63,7 +63,7 @@ namespace Lotos.Mongo.Database
             return entity;
         }
 
-        public async Task<T?> Pick(object id)
+        public async Task<T?> Pick(Guid id)
         {
             var idFilter = BuildIdFilter(id);
 
@@ -83,12 +83,12 @@ namespace Lotos.Mongo.Database
             return result;
         }
 
-        public Task<IEnumerable<T>> PickMany(params object[] ids)
+        public Task<IEnumerable<T>> PickMany(params Guid[] ids)
         {
-            return PickMany(ids as IEnumerable<object>);
+            return PickMany(ids as IEnumerable<Guid>);
         }
 
-        public async Task<IEnumerable<T>> PickMany(IEnumerable<object> ids)
+        public async Task<IEnumerable<T>> PickMany(IEnumerable<Guid> ids)
         {
             var idsFilter = BuildOrIdsFilter(ids);
 
@@ -119,7 +119,7 @@ namespace Lotos.Mongo.Database
             return PickMany(e => true);
         }
 
-        public async Task Remove(object id)
+        public async Task Remove(Guid id)
         {
             var idFilter = BuildIdFilter(id);
 
@@ -131,12 +131,12 @@ namespace Lotos.Mongo.Database
             await _collection.DeleteOneAsync(expression);
         }
 
-        public async Task RemoveMany(params object[] ids)
+        public async Task RemoveMany(params Guid[] ids)
         {
-            await RemoveMany(ids as IEnumerable<object>);
+            await RemoveMany(ids as IEnumerable<Guid>);
         }
 
-        public async Task RemoveMany(IEnumerable<object> ids)
+        public async Task RemoveMany(IEnumerable<Guid> ids)
         {
             var idsFilters = BuildOrIdsFilter(ids);
 
@@ -155,7 +155,7 @@ namespace Lotos.Mongo.Database
             await _collection.ReplaceOneAsync(idFilter, entity);
         }
 
-        private FilterDefinition<T> BuildOrIdsFilter(IEnumerable<object> ids)
+        private FilterDefinition<T> BuildOrIdsFilter(IEnumerable<Guid> ids)
         {
             var idsFilters = new List<FilterDefinition<T>>();
 
@@ -171,7 +171,7 @@ namespace Lotos.Mongo.Database
             return orFilter;
         }
 
-        private FilterDefinition<T> BuildIdFilter(object id)
+        private FilterDefinition<T> BuildIdFilter(Guid id)
         {
             var idFilter = _filters.Eq("_id", id);
 

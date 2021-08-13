@@ -11,29 +11,29 @@ namespace Lotos.Abstractions.Database
 
         Task Sync(T entity);
 
-        Task<T?> Pick(object id);
+        Task<T?> Pick(Guid id);
 
         Task<T?> Pick(Expression<Func<T, bool>> expression);
 
         Task<IEnumerable<T>> PickMany();
 
-        Task<IEnumerable<T>> PickMany(params object[] ids);
+        Task<IEnumerable<T>> PickMany(params Guid[] ids);
 
-        Task<IEnumerable<T>> PickMany(IEnumerable<object> ids);
+        Task<IEnumerable<T>> PickMany(IEnumerable<Guid> ids);
 
         Task<IEnumerable<T>> PickMany(Expression<Func<T, bool>> expression);
 
-        Task Remove(object id);
+        Task Remove(Guid id);
 
         Task Remove(Expression<Func<T, bool>> expression);
 
-        Task RemoveMany(params object[] ids);
+        Task RemoveMany(params Guid[] ids);
 
-        Task RemoveMany(IEnumerable<object> ids);
+        Task RemoveMany(IEnumerable<Guid> ids);
 
         Task RemoveMany(Expression<Func<T, bool>> expression);
 
-        Task<bool> Exists(object id);
+        Task<bool> Exists(Guid id);
 
         Task<bool> Exists(Expression<Func<T, bool>> expression);
 
