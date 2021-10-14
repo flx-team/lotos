@@ -47,14 +47,12 @@ namespace Lotos.Mongo.Database
 
         public async Task<T> Keep(T entity)
         {
-            if (entity.Id != Guid.Empty)
+            if (entity.Id == Guid.Empty || await Exists(entity.Id))
             {
-                return entity;
+                var id = Guid.NewGuid();
+
+                entity.SetId(id);
             }
-
-            var id = Guid.NewGuid();
-
-            entity.SetId(id);
 
             await _collection.InsertOneAsync(entity);
 
