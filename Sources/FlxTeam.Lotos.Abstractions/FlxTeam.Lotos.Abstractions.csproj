@@ -1,49 +1,47 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <WarningsAsErrors>nullable</WarningsAsErrors>
     <PackOnBuild>true</PackOnBuild>
     <Authors>Flx Team</Authors>
     <Description>The Lotos is libraries for work with databases like mongo db or mysql uses one simple interface.</Description>
     <Copyright>Flx Team</Copyright>
     <Owners>Flx Team</Owners>
-    <Title>Lotos.DependencyInjection</Title>
+    <Title>Lotos.Abstractions</Title>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <ReleaseVersion>1.1.1</ReleaseVersion>
-    <PackageVersion>1.1.1</PackageVersion>
+    <ReleaseVersion>2.0.0</ReleaseVersion>
+    <PackageVersion>2.0.0</PackageVersion>
     <PackageIcon>icon.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <RepositoryUrl>https://github.com/flx-team/lotos</RepositoryUrl>
+    <LangVersion>10</LangVersion>
+    <RootNamespace>FlxTeam.Lotos.Abstractions</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Lotos.Abstractions\Lotos.Abstractions.csproj" />
+    <None Remove="Database\" />
+    <None Remove="Exceptions\" />
+    <None Remove="Attributes\" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Microsoft.Extensions.DependencyInjection.Abstractions" />
-    <None Remove="Extensions\" />
-    <None Remove="Common\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Common\" />
+    <Folder Include="Database\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Attributes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <Visible>False</Visible>
+      <PackagePath />
       <Link>Assets\license</Link>
     </None>
     <None Include="..\..\icon.png">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <Visible>False</Visible>
+      <PackagePath />
       <Link>Assets\icon.png</Link>
     </None>
   </ItemGroup>

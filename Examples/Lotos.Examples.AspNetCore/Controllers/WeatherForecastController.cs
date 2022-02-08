@@ -1,55 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Lotos.Abstractions.Database;
-using Lotos.DependencyInjection.Common;
+﻿using System.Threading.Tasks;
+using FlxTeam.Lotos.Abstractions.Database;
+using FlxTeam.Lotos.DependencyInjection.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Lotos.Examples.AspNetCore.Controllers
+namespace Lotos.Examples.AspNetCore.Controllers;
+
+class UserEntity : Entity<UserEntity>
 {
-    class UserEntity : Entity<UserEntity>
+    public string Name { get; set; }
+}
+
+[ApiController]
+[Route("[controller]")]
+public class WeatherForecastController : ControllerBase
+{
+    private static readonly string[] Summaries = new[]
     {
-        public string Name { get; set; }
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+
+    private readonly ILogger<WeatherForecastController> _logger;
+
+    private readonly IBox<UserEntity> _usersBasket;      
+
+    public WeatherForecastController(IConnectionsManager manager, ILogger<WeatherForecastController> logger)
+    {
+        _logger = logger;
+        var connection1 = manager.Get(1);
+        var connection0 = manager.Get(0);
+
+        _usersBasket = connection0.GetBox<UserEntity>();
     }
 
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    [HttpGet]
+    public async Task Get()
     {
-        private static readonly string[] Summaries = new[]
+        var user = new UserEntity()
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            Name = "Roman",
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        await _usersBasket.PutAsync(user);
 
-        private readonly IBasket<UserEntity> _usersBasket;      
+        user.Name = "Roman2";
 
-        public WeatherForecastController(IConnectionsManager manager)
-        {
-            var connection1 = manager.Get(1);
-            var connection0 = manager.Get(0);
+        await _usersBasket.SyncAsync(user);
 
-            _usersBasket = connection0.GetBasket<UserEntity>().GetAwaiter().GetResult();
-        }
-
-        [HttpGet]
-        public async Task Get()
-        {
-            var user = new UserEntity()
-            {
-                Name = "Roman",
-            };
-
-            await _usersBasket.Keep(user);
-
-            user.Name = "Roman2";
-
-            await _usersBasket.Sync(user);
-
-            var user2 = await _usersBasket.Pick(e => e.Name == "Roman2");
-        }
+        var user2 = await _usersBasket.PickAsync(e => e.Name == "Roman2");
     }
 }

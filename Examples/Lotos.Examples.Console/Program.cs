@@ -1,55 +1,51 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Lotos.Abstractions.Attributes;
-using Lotos.Abstractions.Database;
-using Lotos.Mongo.Database;
+using FlxTeam.Lotos.Abstractions.Attributes;
+using FlxTeam.Lotos.Abstractions.Database;
+using FlxTeam.Lotos.Abstractions.Extensions;
+using FlxTeam.Lotos.Drivers.Mongo.Database;
 using InOut = System.Console;
 
-namespace Lotos.Examples.Console
-{
-    class UserEntity : Entity<UserEntity>
-    {
-        public string Name { get; set; }
+namespace Lotos.Examples.Console;
 
-        [Ignore]
-        public string IgnoredName { get; set; }
+class UserEntity : Entity<UserEntity>
+{
+    public string Name { get; set; }
+
+    [Ignore]
+    public string IgnoredName { get; set; }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        AsyncMain(args).GetAwaiter().GetResult();
     }
 
-    class Program
+    static async Task AsyncMain(string[] args)
     {
-        static void Main(string[] args)
+        var driver = new MongoDriver("mongodb://localhost:27017", "console_test_db");
+
+        using var connection = await driver.CreateConnectionAsync();
+        using var usersBasket = await connection.GetBoxAsync<UserEntity>();
+
+        var user = new UserEntity()
         {
-            AsyncMain(args).GetAwaiter().GetResult();
-        }
+            Name = "Name1",
+            IgnoredName = "Ignored",
+        };
 
-        static async Task AsyncMain(string[] args)
-        {
-            var driver = new MongoDriver("mongodb://localhost:27017", "console_test_db");
+        await usersBasket.PutAsync(user);
 
-            using (var connection = await driver.Run())
-            {
-                var usersBasket = await connection.GetBasket<UserEntity>();
+        InOut.ReadLine();
 
-                var user = new UserEntity()
-                {
-                    Name = "Name1",
-                    IgnoredName = "Ignored",
-                };
+        user.Name = "Name2";
 
-                await usersBasket.Keep(user);
+        await user.SyncAsync();
 
-                InOut.ReadLine();
+        InOut.ReadLine();
 
-                user.Name = "Name2";
-
-                await user.Sync();
-
-                // user = await user.Pick();
-
-                InOut.ReadLine();
-
-                await user.Remove();
-            }
-        }
+        await user.RemoveAsync();
     }
 }
