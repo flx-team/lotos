@@ -10,8 +10,8 @@
     <Owners>Flx Team</Owners>
     <Title>Lotos.Mongo</Title>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <ReleaseVersion>2.0.0</ReleaseVersion>
-    <PackageVersion>2.0.0</PackageVersion>
+    <ReleaseVersion>2.0.1</ReleaseVersion>
+    <PackageVersion>2.0.1</PackageVersion>
     <PackageIcon>icon.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
