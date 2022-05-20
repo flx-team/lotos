@@ -16,7 +16,7 @@ public sealed class MongoDriver : IDriver
     {
         ConventionRegistry.Register("LotosMongoConventions", new ConventionPack { new EntityClassMapConvention() }, t =>
         {
-            return t.IsAssignableFrom(typeof(Entity<>));
+            return t.GetInterfaces().Any(e => e == typeof(IEntity));
         });
     }
 

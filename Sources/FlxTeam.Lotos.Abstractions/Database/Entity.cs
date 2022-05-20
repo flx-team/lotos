@@ -3,7 +3,7 @@ using FlxTeam.Lotos.Abstractions.Attributes;
 
 namespace FlxTeam.Lotos.Abstractions.Database;
 
-public class Entity<T> where T : Entity<T>
+public class Entity<T> : IEntity where T : Entity<T>
 {
     public Guid Id { get; set; }
 
