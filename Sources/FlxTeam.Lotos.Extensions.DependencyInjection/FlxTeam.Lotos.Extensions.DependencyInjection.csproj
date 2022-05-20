@@ -1,54 +1,54 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <PackOnBuild>true</PackOnBuild>
-    <Authors>Flx Team</Authors>
-    <Description>The Lotos is libraries for work with databases like mongo db or mysql uses one simple interface.</Description>
-    <Copyright>Flx Team</Copyright>
-    <Owners>Flx Team</Owners>
-    <Title>Lotos.DependencyInjection</Title>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <ReleaseVersion>2.0.1</ReleaseVersion>
-    <PackageVersion>2.0.1</PackageVersion>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <SynchReleaseVersion>false</SynchReleaseVersion>
-    <RepositoryUrl>https://github.com/flx-team/lotos</RepositoryUrl>
-    <LangVersion>10</LangVersion>
-    <RootNamespace>FlxTeam.Lotos.DependencyInjection</RootNamespace>
-    <AssemblyName>FlxTeam.Lotos.Extensions.DependencyInjection</AssemblyName>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <PackOnBuild>true</PackOnBuild>
+        <Authors>Flx Team</Authors>
+        <Description>The Lotos is libraries for work with databases like mongo db or mysql uses one simple interface.</Description>
+        <Copyright>Flx Team</Copyright>
+        <Owners>Flx Team</Owners>
+        <Title>Lotos.DependencyInjection</Title>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <ReleaseVersion>2.0.1</ReleaseVersion>
+        <PackageVersion>2.0.1</PackageVersion>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <SynchReleaseVersion>false</SynchReleaseVersion>
+        <RepositoryUrl>https://github.com/flx-team/lotos</RepositoryUrl>
+        <LangVersion>10</LangVersion>
+        <RootNamespace>FlxTeam.Lotos.DependencyInjection</RootNamespace>
+        <AssemblyName>FlxTeam.Lotos.Extensions.DependencyInjection</AssemblyName>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\FlxTeam.Lotos.Abstractions\FlxTeam.Lotos.Abstractions.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Microsoft.Extensions.DependencyInjection.Abstractions" />
-    <None Remove="Extensions\" />
-    <None Remove="Common\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Common\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\LICENSE">
-      <Pack>True</Pack>
-      <Visible>False</Visible>
-      <PackagePath />
-      <Link>Assets\license</Link>
-    </None>
-    <None Include="..\..\icon.png">
-      <Pack>True</Pack>
-      <Visible>False</Visible>
-      <PackagePath />
-      <Link>Assets\icon.png</Link>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\FlxTeam.Lotos.Abstractions\FlxTeam.Lotos.Abstractions.csproj"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove="Microsoft.Extensions.DependencyInjection.Abstractions"/>
+        <None Remove="Extensions\"/>
+        <None Remove="Common\"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Extensions\"/>
+        <Folder Include="Common\"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\..\LICENSE">
+            <Pack>True</Pack>
+            <Visible>False</Visible>
+            <PackagePath/>
+            <Link>Assets\license</Link>
+        </None>
+        <None Include="..\..\icon.png">
+            <Pack>True</Pack>
+            <Visible>False</Visible>
+            <PackagePath/>
+            <Link>Assets\icon.png</Link>
+        </None>
+    </ItemGroup>
 </Project>

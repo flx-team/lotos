@@ -5,36 +5,34 @@ namespace FlxTeam.Lotos.DependencyInjection.Common;
 
 internal sealed class ConnectionsManager : IConnectionsManager
 {
-    private int _lastPin = 0;
-    private readonly Dictionary<int, IConnection> _pins = new();
+	private readonly Dictionary<int, IConnection> _pins = new ();
 
-    public int Add(IConnection connection)
-    {
-        _pins.Add(_lastPin, connection);
+	private int _lastPin;
 
-        _lastPin++;
+	public int Add(IConnection connection)
+	{
+		_pins.Add(_lastPin, connection);
 
-        return _lastPin;
-    }
+		_lastPin++;
 
-    public void Remove(int pin)
-    {
-        var connection = Get(pin);
-        connection.Dispose();
+		return _lastPin;
+	}
 
-        _pins.Remove(pin);
-    }
+	public void Remove(int pin)
+	{
+		var connection = Get(pin);
+		connection.Dispose();
 
-    public IConnection Get(int pin)
-    {
-        return _pins[pin];
-    }
+		_pins.Remove(pin);
+	}
 
-    public void Dispose()
-    {
-        foreach (var element in _pins)
-        {
-            Remove(element.Key);
-        }
-    }
+	public IConnection Get(int pin)
+	{
+		return _pins[pin];
+	}
+
+	public void Dispose()
+	{
+		foreach (var element in _pins) Remove(element.Key);
+	}
 }

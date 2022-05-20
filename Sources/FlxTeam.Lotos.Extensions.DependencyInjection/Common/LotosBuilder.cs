@@ -5,49 +5,50 @@ namespace FlxTeam.Lotos.DependencyInjection.Common;
 
 public sealed class LotosBuilder
 {
-    private readonly IServiceCollection _services;
-    private readonly IConnectionsManager _manager;
+	private readonly IConnectionsManager _manager;
 
-    public LotosBuilder(IServiceCollection services)
-    {
-        _services = services;
-        _manager = new ConnectionsManager();
-    }
+	private readonly IServiceCollection _services;
 
-    public void Init()
-    {
-        InitConnectionsManager();
-    }
+	public LotosBuilder(IServiceCollection services)
+	{
+		_services = services;
+		_manager = new ConnectionsManager();
+	}
 
-    private void InitConnectionsManager()
-    {
-        _services.AddSingleton(_manager);
-    }
+	public void Init()
+	{
+		InitConnectionsManager();
+	}
 
-    public LotosBuilder AttachDatabase<T>(T driver) where T : IDriver
-    {
-        var connection = driver.CreateConnection();
+	private void InitConnectionsManager()
+	{
+		_services.AddSingleton(_manager);
+	}
 
-        _manager.Add(connection);
+	public LotosBuilder AttachDatabase<T>(T driver) where T : IDriver
+	{
+		var connection = driver.CreateConnection();
 
-        return this;
-    }
+		_manager.Add(connection);
 
-    public LotosBuilder AttachDatabase<T>(T driver, out int pin) where T : IDriver
-    {
-        var connection = driver.CreateConnection();
+		return this;
+	}
 
-        pin = _manager.Add(connection);
+	public LotosBuilder AttachDatabase<T>(T driver, out int pin) where T : IDriver
+	{
+		var connection = driver.CreateConnection();
 
-        return this;
-    }
+		pin = _manager.Add(connection);
 
-    public LotosBuilder SingleDatabase<T>(T driver) where T : IDriver
-    {
-        var connection = driver.CreateConnection();
+		return this;
+	}
 
-        _services.AddSingleton(connection);
+	public LotosBuilder SingleDatabase<T>(T driver) where T : IDriver
+	{
+		var connection = driver.CreateConnection();
 
-        return this;
-    }
+		_services.AddSingleton(connection);
+
+		return this;
+	}
 }
